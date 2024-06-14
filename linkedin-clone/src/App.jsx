@@ -1,9 +1,17 @@
+import Header from "./components/Header"
+
+
 function App() {
 
 
   return (
     <>
-    <h1 className="text-pink-700">Making a linkedin clone</h1>
+
+    {/* top header like a nav bars  */}
+    <Header></Header>
+    {/* quick links and profile sections on left  */}
+    {/* center is the feed with post impressions and all  */}
+    {/* right side is like news and ads  */}
       
     </>
   )
