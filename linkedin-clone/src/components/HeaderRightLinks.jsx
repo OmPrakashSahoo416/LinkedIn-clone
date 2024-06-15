@@ -6,7 +6,7 @@ function HeaderRightLinks({avatar,Icon, title}) {
         {Icon && <Icon></Icon>}
 
         {/* avatar for profile icon  */}
-        {avatar && <img src={avatar} className="rounded-full [!important] object-contain !h-[24px]"></img>}
+        {avatar && <img src={avatar} className="rounded-full object-contain !h-[24px]"></img>}
 
         {/* title component  */}
         <p className="">{title}</p>

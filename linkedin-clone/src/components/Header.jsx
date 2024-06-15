@@ -4,12 +4,11 @@ import HomeIcon from '@mui/icons-material/Home';
 import PeopleIcon from '@mui/icons-material/People';
 import WorkIcon from '@mui/icons-material/Work';
 import EmailIcon from '@mui/icons-material/Email';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 function Header() {
   return (
     <>
-      <div className="header w-[100%] flex sticky top-0 z-[999] justify-evenly bg-slate-100 p-1">
+      <div className="header w-[100%] flex sticky top-0 z-[999] justify-evenly bg-white p-1">
         <div className="headerLeft items-center flex mr-24">
           {/* logo of the application  */}
           <img src="../public/linkedin.png" className='object-contain mr-3 h-9'
@@ -17,9 +16,12 @@ function Header() {
 
           {/* search bar icon using material ui  */}
           {/* search bar  */}
-          <div className="headerSearch p-2 w-64 text-slate-500 flex rounded-md bg-slate-300 items-center">
-            <SearchIcon></SearchIcon>
-            <input type="text" placeholder='Search' className='ml-2  bg-slate-300 outline-none w-64 border-none' />
+          <div className="headerSearch p-2 w-[100%] text-slate-500 flex rounded-md bg-slate-300 items-center">
+            <SearchIcon className='mr-2'></SearchIcon>
+            <form action="" className='w-[100%]'>
+
+            <input type="text" placeholder='Search' className=' bg-slate-300 outline-none w-[100%] border-none' />
+            </form>
           </div>
         </div>
 
