@@ -1,4 +1,4 @@
-import * as firebase from 'firebase';
+import firebase from 'firebase';
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBsDQIJM6wiRSF7kXS-zo3b5dZomxFrIPs",
@@ -10,9 +10,12 @@ const firebaseConfig = {
   measurementId: "G-4EQVEN5BGD",
 };
 
-firebase.initializeApp(firebaseConfig);
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-export default firebase;
+const db = firebaseApp.firestore();
+const auth = firebase.auth();
+
+export {db, auth};
 
 //add this line in codes where you need it =>
 // import firebase from "./Firebase.jsx"
