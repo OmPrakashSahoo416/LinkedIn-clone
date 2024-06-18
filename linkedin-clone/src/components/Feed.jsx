@@ -3,8 +3,28 @@ import PermMediaIcon from '@mui/icons-material/PermMedia';
 import FileOpenIcon from '@mui/icons-material/FileOpen';
 import ArticleIcon from '@mui/icons-material/Article';
 import PostFeed from "./PostFeed";
+import { useEffect, useState } from "react";
+
+
 
 function Feed() {
+    const [input, setInput] = useState('');
+    const [posts, setPosts] = useState([{name:"Om", description:"crazy", message:'love'}]);
+
+   
+
+    function sendPost(e) {
+        e.preventDefault();
+
+        setPosts([...posts, {name:"Om Prakash",
+            description:"cool guy of bombay",
+            message:posts
+
+        }])
+    }
+    
+
+
     return(
         <>
         <div className="feed flex-[0.5] mt-5 mr-5 top-20">
@@ -19,14 +39,15 @@ function Feed() {
             ></img>
             {/* creating a form so that we can submit on enter */}
             <form action="" className="w-[100%]">
-                <input type="text" className="p-2 pl-5 w-[100%] border focus:outline-none focus:text-slate-600 border-slate-400 rounded-full" name="" placeholder="Start a post!" id="" />
+                <input type="text" value={input} onChange={e => {setInput(e.target.value)}} className="p-2 pl-5 w-[100%] border focus:outline-none focus:text-slate-600 border-slate-400 rounded-full" name="" placeholder="Start a post!" id="" />
+                <input onClick={sendPost} type="submit" value="" />
             </form>
 
             </div>
 
             {/* to input media and other kind of stuffs  */}
             <div className="inputMedia flex justify-around">
-            <PostInput title={"Media"} Icon={PermMediaIcon} color={"skyblue"} />
+            <PostInput title={"Media"} Icon={PermMediaIcon} color={"#33ACFF"} />
             <PostInput title={"Contribute Expertise"} Icon={FileOpenIcon} color={"DarkGoldenRod"} />
             <PostInput title={"Write Article"} Icon={ArticleIcon} color={"Crimson"} />
             </div>
@@ -38,7 +59,10 @@ function Feed() {
         <div className="postFeed bg-white rounded-lg border p-5 border-slate-200">
 
             {/* posts header section with icon and name and description  */}
-            
+            {posts.map(({name,description, message}, id) => (
+                <PostFeed key={id} name={name} description={description} textContent={message}
+                ></PostFeed>
+            ))}
 
 
             <PostFeed name={"Om Prakash Sahoo"} description={"Associate Engineer @HSC | Tech Enthusiast | Codechef 3* (1600+) | Codeforces Pupil (1350+)"} textContent={"Happy Father’s Day to all you dads out there working hard to give your families a better life. Sometimes the struggle is hard and often it’s lonely but in the end, that one smile on your child’s face makes it all worthwhile."}></PostFeed>

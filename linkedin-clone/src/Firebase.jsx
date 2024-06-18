@@ -1,5 +1,9 @@
-import firebase from 'firebase';
-// TODO: Replace the following with your app's Firebase project configuration
+import {initializeApp} from 'firebase/app'
+import {getFirestore, collection, onSnapshot, query} from 'firebase/firestore'
+import { getAuth } from "firebase/auth";
+
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyBsDQIJM6wiRSF7kXS-zo3b5dZomxFrIPs",
   authDomain: "linkedin-clone-c1c64.firebaseapp.com",
@@ -7,17 +11,11 @@ const firebaseConfig = {
   storageBucket: "linkedin-clone-c1c64.appspot.com",
   messagingSenderId: "944862144258",
   appId: "1:944862144258:web:511d2b90c1908bfe75c41b",
-  measurementId: "G-4EQVEN5BGD",
+  measurementId: "G-4EQVEN5BGD"
 };
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);
-
-const db = firebaseApp.firestore();
-const auth = firebase.auth();
+const firebaseApp = initializeApp(firebaseConfig);
+const db = getFirestore(firebaseApp);
+const auth = getAuth(firebaseApp);
 
 export {db, auth};
-
-//add this line in codes where you need it =>
-// import firebase from "./Firebase.jsx"
-
-
