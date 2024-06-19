@@ -1,6 +1,8 @@
+import { red } from "@mui/material/colors";
 import Feed from "./components/Feed";
 import Header from "./components/Header";
 import LeftSideBar from "./components/LeftSideBar";
+import RightSideBar from "./components/RightSideBar";
 
 function App() {
   return (
@@ -11,7 +13,7 @@ function App() {
       {/* top header like a nav bars  */}
       <Header></Header>
 
-      <div className="appBody flex">
+      <div className="appBody flex justify-center">
         {/* left side bar */}
         {/* quick links and profile sections on left  */}
         <LeftSideBar></LeftSideBar>
@@ -22,6 +24,7 @@ function App() {
 
         {/* right side bar  */}
         {/* right side is like news and ads  */}
+        <RightSideBar></RightSideBar>
       </div>
       </div>
     </>

@@ -4,10 +4,10 @@ import Chat from '@mui/icons-material/ChatOutlined';
 import Repeat from '@mui/icons-material/RepeatOutlined';
 import Send from '@mui/icons-material/SendRounded';
 
-function PostFeed({name,description, textContent}) {
+function PostFeed({name,description, textContent, imageLink}) {
   return (
     <>
-    <div className="post mb-3">
+    <div className="post bg-white rounded-lg border p-5 mb-3 border-slate-200">
 
       <div className="postsHeader mb-3 flex items-center">
         <img
@@ -16,7 +16,7 @@ function PostFeed({name,description, textContent}) {
         ></img>
         <div className="postHeaderDesc w-1/2">
 
-        <p className="font-semibold text-slate-800 text-sm">{name}</p>
+        <p className="font-semibold  text-slate-800 text-sm">{name}</p>
         <p className="text-[12px] h-5 overflow-hidden text-ellipsis whitespace-nowrap  text-slate-600">{description}</p>
         </div>
         
@@ -27,6 +27,9 @@ function PostFeed({name,description, textContent}) {
             <img src="" alt="" />
             
 
+        </div>
+        <div className="ImagePost flex justify-center mb-3">
+          <img src={imageLink} className="object-cover w-[100%]" alt="" />
         </div>
         <hr />
         <div className="postImpression flex justify-evenly mt-1">

@@ -1,7 +1,7 @@
 function HeaderRightLinks({avatar,Icon, title}) {
   return (
     <>
-      <div className="flex flex-col items-center mr-12 text-slate-600 cursor-pointer hover:text-slate-800">
+      <div className="flex flex-col items-center mr-12 text-slate-500 cursor-pointer hover:text-slate-800">
         {/* icon component  */}
         {Icon && <Icon></Icon>}
 
@@ -9,7 +9,7 @@ function HeaderRightLinks({avatar,Icon, title}) {
         {avatar && <img src={avatar} className="rounded-full object-contain !h-[24px]"></img>}
 
         {/* title component  */}
-        <p className="">{title}</p>
+        <p className="text-[12px]">{title}</p>
       </div>
     </>
   );

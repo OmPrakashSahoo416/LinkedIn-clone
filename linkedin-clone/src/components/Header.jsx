@@ -11,16 +11,16 @@ function Header() {
       <div className="header w-[100%] flex sticky top-0 z-[999] justify-evenly bg-white p-1">
         <div className="headerLeft items-center flex mr-24">
           {/* logo of the application  */}
-          <img src="../public/linkedin.png" className='object-contain mr-3 h-9'
+          <img src="../public/linkedin.png" className='object-contain mr-3 h-8'
            alt="" />
 
           {/* search bar icon using material ui  */}
           {/* search bar  */}
-          <div className="headerSearch p-2 w-[100%] text-slate-500 flex rounded-md bg-slate-300 items-center">
+          <div className="headerSearch p-1 w-[100%] text-slate-500 flex rounded-md bg-slate-100 items-center">
             <SearchIcon className='mr-2'></SearchIcon>
             <form action="" className='w-[100%]'>
 
-            <input type="text" placeholder='Search' className=' bg-slate-300 outline-none w-[100%] border-none' />
+            <input type="text" placeholder='Search' className=' bg-slate-100 text-sm outline-none w-[100%] border-none' />
             </form>
           </div>
         </div>

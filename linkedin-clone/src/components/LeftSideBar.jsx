@@ -3,7 +3,7 @@ import RecentVisitedGroups from "./RecentVisitedGroups";
 function LeftSideBar() {
   return (
     <>
-      <div className="leftSideBar flex-[0.2] mt-5 mr-5 top-20">
+      <div className="leftSideBar flex-[0.15] mt-5 mr-5 top-20">
         {/* top with account details post impressions stats and all  */}
         <div className="leftSideBarTop border border-slate-200 bg-white mb-3 flex items-center flex-col text-center rounded-lg">
           {/* account section  */}
