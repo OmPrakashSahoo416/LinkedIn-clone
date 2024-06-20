@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { db } from "../Firebase";
 import firebase from "firebase/compat/app";
 
-function Feed() {
+function Feed({user, image}) {
   const [postText, setPostText] = useState("");
   const [posts, setPosts] = useState([]);
   const [imageSrc, setImageSrc] = useState("");
@@ -29,8 +29,9 @@ function Feed() {
     e.preventDefault();
 
     db.collection("posts").add({
-      name: "Om Prakash",
+      name: user,
       desc: "I am a comedian",
+      profPic: image,
       msg: postText,
       img: imageSrc,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
@@ -45,7 +46,7 @@ function Feed() {
           {/* profile pic and input text field  */}
           <div className="inputText flex mb-5 items-center">
             <img
-              src="../public/avatar_2.jpg"
+              src={image}
               className="rounded-full object-contain mr-3 !h-[40px]"
             ></img>
             {/* creating a form so that we can submit on enter */}
@@ -84,6 +85,7 @@ function Feed() {
           <PostFeed
             key={post.id}
             name={post.data.name}
+            profileImg={post.data.profPic}
             description={post.data.desc}
             textContent={post.data.msg}
             imageLink={post.data.img}

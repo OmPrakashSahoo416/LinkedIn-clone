@@ -4,14 +4,14 @@ import Chat from '@mui/icons-material/ChatOutlined';
 import Repeat from '@mui/icons-material/RepeatOutlined';
 import Send from '@mui/icons-material/SendRounded';
 
-function PostFeed({name,description, textContent, imageLink}) {
+function PostFeed({name,profileImg,description, textContent, imageLink}) {
   return (
     <>
     <div className="post bg-white rounded-lg border p-5 mb-3 border-slate-200">
 
       <div className="postsHeader mb-3 flex items-center">
         <img
-          src="../public/avatar_2.jpg"
+          src={profileImg}
           className="rounded-full object-contain mr-3 !h-[38px]"
         ></img>
         <div className="postHeaderDesc w-1/2">

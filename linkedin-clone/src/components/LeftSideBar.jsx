@@ -1,6 +1,7 @@
 import RecentVisitedGroups from "./RecentVisitedGroups";
 
-function LeftSideBar() {
+function LeftSideBar({name, image}) {
+
   return (
     <>
       <div className="leftSideBar flex-[0.15] mt-5 mr-5 top-20">
@@ -13,12 +14,12 @@ function LeftSideBar() {
 
             {/* account image */}
             <img
-              src="../public/avatar_2.jpg"
+              src={image}
               className="rounded-full object-contain mb-2 ring-2 ring-white !h-[64px]"
             ></img>
 
             {/* User name  */}
-            <h3 className="font-semibold text-slate-800">Om Prakash Sahoo</h3>
+            <h3 className="font-semibold text-slate-800">{name}</h3>
 
             {/* User intro lines */}
             <p className="text-[12px] p-3 text-slate-600">

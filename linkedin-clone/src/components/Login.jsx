@@ -1,35 +1,50 @@
-import HomeIcon from "@mui/icons-material/Home";
 import PeopleIcon from "@mui/icons-material/People";
 import WorkIcon from "@mui/icons-material/Work";
 import HeaderRightLinks from "./HeaderRightLinks";
 import { auth } from "../Firebase";
 import { useState } from "react";
 
-function Login() {
+function Login({user,setUser, setImage}) {
     
     const [fullName, setFullName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [profilePicUrl, setprofilePicUrl] = useState('')
+    const [profilePicUrl, setProfilePicUrl] = useState("https://shorturl.at/v4y5w")
 
     function loginToApp(e) {
         e.preventDefault();
-        auth
+         auth.signInWithEmailAndPassword(email,password).then((userAuth) => {
+            setUser(userAuth.user.displayName);
+            setImage(userAuth.user.photoURL);
+  
+          }).catch(err => alert(err.code))
+        
         
     }
-    function registerToApp() {
+    function registerToApp(e) {
+      e.preventDefault();
         if (!fullName) {
             return alert("Please enter your name")
         }
 
-        auth.createUserWithEmailAndPassword(email,password).then((userAuth) => {
+         auth.createUserWithEmailAndPassword(email,password).then((userAuth) => {
+          
             userAuth.user.updateProfile({
                 displayName:fullName,
                 photoURL:profilePicUrl
             }).then(() => {
+              console.log(userAuth);
+              setUser(userAuth.user.displayName);
+              setImage(userAuth.user.photoURL);
+              
 
             })
-        }).catch(err => console.log(err))
+        }).catch(err => alert(err.code))
+
+        
+
+        
+        
 
         
     }
@@ -46,17 +61,16 @@ function Login() {
             />
           </div>
           <div className="loginHeaderRight flex">
-            <HeaderRightLinks Icon={HomeIcon} title="Home"></HeaderRightLinks>
             <HeaderRightLinks
               Icon={PeopleIcon}
-              title="My Network"
+              title="People"
             ></HeaderRightLinks>
             <HeaderRightLinks Icon={WorkIcon} title="Jobs"></HeaderRightLinks>
           </div>
         </div>
-        <div className="loginBody flex items-center">
+        <div className="loginBody flex justify-between items-end">
           <div className="loginForm pl-32 pt-16">
-            <p className="text-5xl font-thin mb-10 text-amber-900">
+            <p className="text-5xl font-thin mb-10 w-[75%] text-amber-900">
               Welcome to your professional community
             </p>
             <form action="">
@@ -70,7 +84,7 @@ function Login() {
                 className="p-3 mb-5 w-96 hover:bg-slate-200  rounded-md border border-slate-800"
                 name=""
                 placeholder=""
-                id=""
+                id="name"
               />
               <label htmlFor="" className="text-sm mb-2  font-medium block">
                 Profile Pic URL
@@ -78,11 +92,11 @@ function Login() {
               <input
                 type="text"
                 value={profilePicUrl}
-                onChange={e => setprofilePicUrl(e.target.value)}
+                onChange={e => setProfilePicUrl(e.target.value)}
                 className="p-3 mb-5 w-96 hover:bg-slate-200 rounded-md border border-slate-800"
                 name=""
                 placeholder=""
-                id=""
+                id="profPic"
               />
               <label htmlFor="" className="text-sm mb-2 font-medium block">
                 Email
@@ -95,7 +109,7 @@ function Login() {
                 className="p-3 mb-5 w-96 hover:bg-slate-200 rounded-md border border-slate-800"
                 name=""
                 placeholder=""
-                id=""
+                id="email"
               />
               <label htmlFor="" className="text-sm mb-2 font-medium block">
                 Password
@@ -108,7 +122,7 @@ function Login() {
                 className="p-3 mb-5 hover:bg-slate-200 w-96 block rounded-md border border-slate-800"
                 name=""
                 placeholder=""
-                id=""
+                id="pass"
               />
 
               <input
@@ -126,7 +140,7 @@ function Login() {
             </form>
           </div>
           <div className="loginImage ">
-            <img src="../public/login_image.svg" className="mt-16 " alt="" />
+            <img src="../public/login_image.svg" className="lg:inline hidden" alt="" />
           </div>
         </div>
       </div>

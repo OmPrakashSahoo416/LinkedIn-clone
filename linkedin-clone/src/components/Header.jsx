@@ -5,7 +5,7 @@ import PeopleIcon from '@mui/icons-material/People';
 import WorkIcon from '@mui/icons-material/Work';
 import EmailIcon from '@mui/icons-material/Email';
 
-function Header() {
+function Header({image}) {
   return (
     <>
       <div className="header w-[100%] flex sticky top-0 z-[999] justify-evenly bg-white p-1">
@@ -33,7 +33,7 @@ function Header() {
         <HeaderRightLinks Icon={PeopleIcon} title="My Network"></HeaderRightLinks>
         <HeaderRightLinks Icon={WorkIcon} title="Jobs"></HeaderRightLinks>
         <HeaderRightLinks Icon={EmailIcon} title="Messaging"></HeaderRightLinks>
-        <HeaderRightLinks avatar={"../public/avatar_2.jpg"} title="Me"></HeaderRightLinks>
+        <HeaderRightLinks avatar={image} title="Me"></HeaderRightLinks>
         </div>
 
       </div>
