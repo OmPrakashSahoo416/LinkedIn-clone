@@ -5,7 +5,7 @@ function RightSideBar() {
 
     return (
         <>
-        <div className="rightSideBar flex-[0.2] mt-5 mr-5">
+        <div className="rightSideBar  hidden md:flex flex-[0.2] mt-5 mr-5">
         <div className="newsSection bg-white rounded-lg border p-5 mb-5 border-slate-200">
             <p className="font-semibold text-[#33ACFF]">SinkedIn News</p>
 

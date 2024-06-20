@@ -4,14 +4,19 @@ import HomeIcon from '@mui/icons-material/Home';
 import PeopleIcon from '@mui/icons-material/People';
 import WorkIcon from '@mui/icons-material/Work';
 import EmailIcon from '@mui/icons-material/Email';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { auth } from '../Firebase';
 
 function Header({image}) {
+  function logOutHandler() {
+    auth.signOut();
+  }
   return (
     <>
       <div className="header w-[100%] flex sticky top-0 z-[999] justify-evenly bg-white p-1">
         <div className="headerLeft items-center flex mr-24">
           {/* logo of the application  */}
-          <img src="../public/linkedin.png" className='object-contain mr-3 h-8'
+          <img src="../public/linkedin.svg" className='object-contain mr-5 h-9'
            alt="" />
 
           {/* search bar icon using material ui  */}
@@ -34,6 +39,7 @@ function Header({image}) {
         <HeaderRightLinks Icon={WorkIcon} title="Jobs"></HeaderRightLinks>
         <HeaderRightLinks Icon={EmailIcon} title="Messaging"></HeaderRightLinks>
         <HeaderRightLinks avatar={image} title="Me"></HeaderRightLinks>
+        <HeaderRightLinks Icon={LogoutIcon} onClick={logOutHandler} title="LogOut"></HeaderRightLinks>
         </div>
 
       </div>

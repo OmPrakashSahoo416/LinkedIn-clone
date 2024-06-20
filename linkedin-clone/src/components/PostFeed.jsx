@@ -3,16 +3,17 @@ import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
 import Chat from '@mui/icons-material/ChatOutlined';
 import Repeat from '@mui/icons-material/RepeatOutlined';
 import Send from '@mui/icons-material/SendRounded';
+import { forwardRef } from "react";
 
-function PostFeed({name,profileImg,description, textContent, imageLink}) {
+const PostFeed = forwardRef(function PostFeed({name,profileImg,description, textContent, imageLink}, ref) {
   return (
     <>
-    <div className="post bg-white rounded-lg border p-5 mb-3 border-slate-200">
+    <div ref={ref} className="post bg-white rounded-lg border p-5 mb-3 border-slate-200">
 
       <div className="postsHeader mb-3 flex items-center">
         <img
           src={profileImg}
-          className="rounded-full object-contain mr-3 !h-[38px]"
+          className="rounded-full object-contain mr-3 !h-[38px] bg-black !w-[38px]"
         ></img>
         <div className="postHeaderDesc w-1/2">
 
@@ -42,5 +43,5 @@ function PostFeed({name,profileImg,description, textContent, imageLink}) {
     </div>
     </>
   );
-}
+})
 export default PostFeed;

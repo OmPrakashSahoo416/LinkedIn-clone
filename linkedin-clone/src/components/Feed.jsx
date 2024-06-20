@@ -6,8 +6,9 @@ import PostFeed from "./PostFeed";
 import { useEffect, useState } from "react";
 import { db } from "../Firebase";
 import firebase from "firebase/compat/app";
+import FlipMove from 'react-flip-move';
 
-function Feed({user, image}) {
+function Feed({user, image, email}) {
   const [postText, setPostText] = useState("");
   const [posts, setPosts] = useState([]);
   const [imageSrc, setImageSrc] = useState("");
@@ -30,7 +31,7 @@ function Feed({user, image}) {
 
     db.collection("posts").add({
       name: user,
-      desc: "I am a comedian",
+      desc: email,
       profPic: image,
       msg: postText,
       img: imageSrc,
@@ -40,14 +41,14 @@ function Feed({user, image}) {
 
   return (
     <>
-      <div className="feed flex-[0.4] mt-5 mr-5 top-20">
+      <div className="feed flex-[0.4] mt-5 md:mr-5 top-20">
         {/* input field to input images or anything to create a post  */}
         <div className="feedInputBox bg-white rounded-lg border p-5 mb-5 border-slate-200">
           {/* profile pic and input text field  */}
           <div className="inputText flex mb-5 items-center">
             <img
               src={image}
-              className="rounded-full object-contain mr-3 !h-[40px]"
+              className="rounded-full object-contain mr-3 !h-[40px] bg-black !w-[40px]"
             ></img>
             {/* creating a form so that we can submit on enter */}
             <form action="" className="w-[100%]">
@@ -81,7 +82,11 @@ function Feed({user, image}) {
           </div>
         </div>
 
-        {posts.map((post) => (
+        <FlipMove>
+
+        {
+        posts.map((post) => (
+          
           <PostFeed
             key={post.id}
             name={post.data.name}
@@ -90,7 +95,12 @@ function Feed({user, image}) {
             textContent={post.data.msg}
             imageLink={post.data.img}
           />
-        ))}
+          
+        ))
+        }
+        </FlipMove>
+        
+        
 
         {/* feed or posts of persons with their names icons images texts everything  */}
         {/* <div className="postFeed "> */}

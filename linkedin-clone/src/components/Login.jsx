@@ -4,7 +4,7 @@ import HeaderRightLinks from "./HeaderRightLinks";
 import { auth } from "../Firebase";
 import { useState } from "react";
 
-function Login({user,setUser, setImage}) {
+function Login({setUser, setImage}) {
     
     const [fullName, setFullName] = useState('')
     const [email, setEmail] = useState('')
@@ -69,7 +69,7 @@ function Login({user,setUser, setImage}) {
           </div>
         </div>
         <div className="loginBody flex justify-between items-end">
-          <div className="loginForm pl-32 pt-16">
+          <div className="loginForm md:pl-32 pl-10 pt-16">
             <p className="text-5xl font-thin mb-10 w-[75%] text-amber-900">
               Welcome to your professional community
             </p>

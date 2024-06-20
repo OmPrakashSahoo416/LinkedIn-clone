@@ -1,30 +1,30 @@
+import { auth } from "../Firebase";
 import RecentVisitedGroups from "./RecentVisitedGroups";
 
 function LeftSideBar({name, image}) {
 
   return (
     <>
-      <div className="leftSideBar flex-[0.15] mt-5 mr-5 top-20">
+      <div className="leftSideBar flex-[0.15] mt-5 md:mr-5 top-20">
         {/* top with account details post impressions stats and all  */}
         <div className="leftSideBarTop border border-slate-200 bg-white mb-3 flex items-center flex-col text-center rounded-lg">
           {/* account section  */}
-          <div className="leftSideBarAccount mb-4 flex items-center flex-col ">
+          <div className="leftSideBarAccount mb-4 w-[100%] flex items-center flex-col ">
             {/* background image of account  */}
             <img src="../public/linkedcover.jpg" className="w-[100%] rounded-t-lg h-16 mb-[-30px] object-cover" alt="" />
 
             {/* account image */}
             <img
               src={image}
-              className="rounded-full object-contain mb-2 ring-2 ring-white !h-[64px]"
+              className="rounded-full object-contain mb-2 ring-2 ring-white !h-[64px] bg-black !w-[64px]"
             ></img>
 
             {/* User name  */}
             <h3 className="font-semibold text-slate-800">{name}</h3>
 
             {/* User intro lines */}
-            <p className="text-[12px] p-3 text-slate-600">
-              Associate Engineer @HSC | Tech Enthusiast | Codechef 3*(1600+) |
-              Codeforces Pupil(1350+)
+            <p className="text-[12px] p-2 text-slate-600">
+              {auth.currentUser.email}
             </p>
           </div>
 
