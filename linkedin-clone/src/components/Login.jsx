@@ -55,7 +55,7 @@ function Login({setUser, setImage}) {
         <div className="loginHeader flex bg-[#f4f2ee] items-center top-0 justify-around p-1">
           <div className="loginHeaderLeft">
             <img
-              src="../public/linkedinlong.png"
+              src="https://rb.gy/4hfqls"
               className="object-contain h-8"
               alt=""
             />
@@ -140,7 +140,7 @@ function Login({setUser, setImage}) {
             </form>
           </div>
           <div className="loginImage ">
-            <img src="../public/login_image.svg" className="lg:inline hidden" alt="" />
+            <img src="https://rb.gy/82ex8e" className="lg:inline hidden" alt="" />
           </div>
         </div>
       </div>

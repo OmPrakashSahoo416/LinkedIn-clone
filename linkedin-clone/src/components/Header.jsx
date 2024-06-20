@@ -16,7 +16,7 @@ function Header({image}) {
       <div className="header w-[100%] flex sticky top-0 z-[999] justify-evenly bg-white p-1">
         <div className="headerLeft items-center flex mr-24">
           {/* logo of the application  */}
-          <img src="../public/linkedin.svg" className='object-contain mr-5 h-9'
+          <img src="https://rb.gy/kc1l1i" className='object-contain mr-5 h-9'
            alt="" />
 
           {/* search bar icon using material ui  */}

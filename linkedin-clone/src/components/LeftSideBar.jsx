@@ -11,7 +11,7 @@ function LeftSideBar({name, image}) {
           {/* account section  */}
           <div className="leftSideBarAccount mb-4 w-[100%] flex items-center flex-col ">
             {/* background image of account  */}
-            <img src="../public/linkedcover.jpg" className="w-[100%] rounded-t-lg h-16 mb-[-30px] object-cover" alt="" />
+            <img src="https://rb.gy/jgn0v6" className="w-[100%] rounded-t-lg h-16 mb-[-30px] object-cover" alt="" />
 
             {/* account image */}
             <img
