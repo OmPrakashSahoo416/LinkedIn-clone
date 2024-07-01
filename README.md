@@ -1,1 +1,1 @@
-LinkedIn Clone - A React Redux App
+LinkedIn Clone - A React App
